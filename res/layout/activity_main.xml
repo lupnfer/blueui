@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="33dp"
+        android:background="@drawable/btnback_style" />
+
+    <Button
+        android:id="@+id/btnFast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/btnfast_style" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="400.0px"
+        android:layout_height="45.0px"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="68dp"
+        android:gravity="center" />
+
+    <Button
+        android:id="@+id/btnSlow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/seekBar"
+        android:background="@drawable/btnslow_style" />
+
+    <Button
+        android:id="@+id/btnStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/seekBar"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="31dp"
+        android:background="@drawable/btnstop_style" />
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="40px"
+        android:layout_height="16px"
+        android:layout_alignLeft="@+id/btnFast"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="22dp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/progressBar1"
+        android:layout_toRightOf="@+id/progressBar1"
+        />
+
+</RelativeLayout>
