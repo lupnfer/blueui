@@ -28,7 +28,8 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginBottom="68dp"
-        android:gravity="center" />
+        android:gravity="center"
+        android:thumb="@drawable/thumb" />
 
     <Button
         android:id="@+id/btnSlow"
@@ -56,12 +57,18 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="22dp" />
 
+    <Button
+        android:id="@+id/btnShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnBack" />
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/progressBar1"
         android:layout_toRightOf="@+id/progressBar1"
-        />
+        android:text="Battery" />
 
 </RelativeLayout>
