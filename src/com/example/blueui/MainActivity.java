@@ -112,6 +112,10 @@ public  class MainActivity<readThread> extends Activity implements SensorEventLi
         this.mButtonShow=((Button)findViewById(R.id.btnShow));
         mButtonShow.setText("连接中 未连接上");
         this.mButtonFast = ((Button)findViewById(R.id.btnFast));
+        this.mButtonSlow = ((Button)findViewById(R.id.btnSlow));
+        this.mButtonBack = ((Button)findViewById(R.id.btnBack));
+        this.mButtonStop = ((Button)findViewById(R.id.btnStop));
+        mButtonStop.setBackgroundResource(R.drawable.stopon);
         this.mButtonFast.setOnTouchListener(new View.OnTouchListener()
         {
           public boolean onTouch(View paramView, MotionEvent paramMotionEvent)
@@ -123,8 +127,12 @@ public  class MainActivity<readThread> extends Activity implements SensorEventLi
             {
 
                 // return false;
-            	if(link)
-            	 mButtonShow.setBackgroundResource(R.drawable.fast);
+            	if(link){
+            		mButtonSlow.setBackgroundResource(R.drawable.slow1);
+          		  mButtonStop.setBackgroundResource(R.drawable.stop);
+          		  mButtonBack.setBackgroundResource(R.drawable.back);
+          		  mButtonFast.setBackgroundResource(R.drawable.faston);
+            	}
                  MainActivity.this.Velocity = 2;
                  byte[] arrayOfByte2 = new byte[4];
                  arrayOfByte2[0] = MainActivity.this.Head;
@@ -185,7 +193,7 @@ public  class MainActivity<readThread> extends Activity implements SensorEventLi
         });
         
         
-        this.mButtonSlow = ((Button)findViewById(R.id.btnSlow));
+       
 //      this.mButtonSlow.setHeight(this.BtnHeight);
 //      this.mButtonSlow.setWidth(this.BtnWidth);
       this.mButtonSlow.setOnTouchListener(new View.OnTouchListener()
@@ -200,8 +208,13 @@ public  class MainActivity<readThread> extends Activity implements SensorEventLi
 
      	     //       return false;
         	  if(link)
-        		  mButtonShow.setBackgroundResource(R.drawable.slow1);
-     	            MainActivity.this.Velocity = 1;
+        	  {
+        		  mButtonSlow.setBackgroundResource(R.drawable.slow1on);
+        		  mButtonStop.setBackgroundResource(R.drawable.stop);
+        		  mButtonBack.setBackgroundResource(R.drawable.back);
+        		  mButtonFast.setBackgroundResource(R.drawable.fast);
+        	  }
+        		  MainActivity.this.Velocity = 1;
      	            byte[] arrayOfByte2 = new byte[4];
      	            arrayOfByte2[0] = MainActivity.this.Head;
      	            arrayOfByte2[1] = MainActivity.this.Move;
@@ -265,7 +278,7 @@ public  class MainActivity<readThread> extends Activity implements SensorEventLi
         }
       });
       
-      this.mButtonBack = ((Button)findViewById(R.id.btnBack));
+      
       //   this.mButtonBack.setHeight(this.BtnHeight);
      //    this.mButtonBack.setWidth(this.BtnWidth);
          this.mButtonBack.setOnTouchListener(new View.OnTouchListener()
@@ -279,8 +292,14 @@ public  class MainActivity<readThread> extends Activity implements SensorEventLi
              {
 
                 //     return false;
-            	 if(link)
-            		 mButtonShow.setBackgroundResource(R.drawable.back);
+            	 if(link){
+            	  mButtonSlow.setBackgroundResource(R.drawable.slow1);
+           		  mButtonStop.setBackgroundResource(R.drawable.stop);
+           		  mButtonBack.setBackgroundResource(R.drawable.backon);
+           		  mButtonFast.setBackgroundResource(R.drawable.fast);
+            		 
+            	 }
+            		
                         MainActivity.this.Velocity = -1;
                         byte[] arrayOfByte2 = new byte[4];
                         arrayOfByte2[0] = MainActivity.this.Head;
@@ -341,7 +360,7 @@ public  class MainActivity<readThread> extends Activity implements SensorEventLi
            }
          });
          
-         this.mButtonStop = ((Button)findViewById(R.id.btnStop));
+         
    //      this.mButtonStop.setHeight(140);
   //       this.mButtonStop.setWidth(this.BtnWidth);
          final Drawable drawableStop =mButtonStop.getBackground();
@@ -358,9 +377,12 @@ public  class MainActivity<readThread> extends Activity implements SensorEventLi
              {
 
                  //         return false;
-            	 if(link)
-            		 mButtonShow.setBackgroundResource(R.drawable.onstop);
-	
+            	 if(link){
+            		 mButtonSlow.setBackgroundResource(R.drawable.slow1);
+           		  mButtonStop.setBackgroundResource(R.drawable.stopon);
+           		  mButtonBack.setBackgroundResource(R.drawable.back);
+           		  mButtonFast.setBackgroundResource(R.drawable.fast);
+            	 }
                           MainActivity.this.Velocity = 0;
                           byte[] arrayOfByte2 = new byte[4];
                           arrayOfByte2[0] = MainActivity.this.Head;
@@ -492,8 +514,8 @@ public  class MainActivity<readThread> extends Activity implements SensorEventLi
 
                 btSocket.connect();
                 DisplayToast("连接成功建立，数据连接打开！");
-                mButtonShow.setText("");
-                mButtonShow.setBackgroundResource(R.drawable.onstop);
+                mButtonShow.setText("连接上");
+             //   mButtonShow.setBackgroundResource(R.drawable.onstop);
                 link=true;
                 mreadThread = new readThread();  
                 mreadThread.start();  
@@ -553,8 +575,9 @@ public  class MainActivity<readThread> extends Activity implements SensorEventLi
 //	     paramSensorEvent.values[0];
         float f = arg0.values[1];
    //     paramSensorEvent.values[2];
-       MainActivity.this.setTitle(":" + MainActivity.getNumber + "button is" + MainActivity.this.Velocity);
+   //    MainActivity.this.setTitle(":" + MainActivity.getNumber + "button is" + MainActivity.this.Velocity);
   //      MainActivity.this.setTitle(":" + MainActivity.getNumber + "count is" + MainActivity.this.count);
+        MainActivity.this.setTitle("小车蓝牙控制程序");
         int i = (int)f;
         int j = 100 * (int)(5.0F * f) / 80;
         if (j >= 50)
